@@ -80,6 +80,7 @@ export interface CliArgs {
   screenReader: boolean | undefined;
   useSmartEdit: boolean | undefined;
   sessionSummary: string | undefined;
+  runIssuetrakApiv2Tests: boolean | undefined;
 }
 
 export async function parseArguments(settings: Settings): Promise<CliArgs> {
@@ -232,6 +233,11 @@ export async function parseArguments(settings: Settings): Promise<CliArgs> {
         .option('session-summary', {
           type: 'string',
           description: 'File to write session summary to.',
+        })
+        .option('run-issuetrak-apiv2-tests', {
+          type: 'boolean',
+          description: 'Run IssueTrak APIv2 tests',
+          default: false,
         })
         .deprecateOption(
           'telemetry',
